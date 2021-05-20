@@ -5,6 +5,17 @@ const $btn =d.getElementById('btn');
 const $pais=d.getElementById('pais');
 const $estado=d.getElementById('estado');
 const $tarjeta =d.getElementById('tarjeta');
+const descripciones={
+    "clear sky":"cielo despejado",
+    "few clouds":"pocas nuves",
+    "scattered clouds":"nuves dispersas",
+    "broken clouds":"nuves rotas",
+    "shower rain":"aguacero",
+    "rain":"lluevioso",
+    "thunderstorm":"tormenta",
+    "snow":"nevado",
+    "mist":"con neblina"
+}
 
 $btn.addEventListener('click',()=>{
 
@@ -15,14 +26,22 @@ $btn.addEventListener('click',()=>{
         $tarjeta.innerHTML='';
         let fragmento=d.createDocumentFragment();
         let h1=d.createElement('h1');
-        h1.classList.add("text-center");
         let temperatura=kelvin(json.main.temp);
         let primerh4=d.createElement('h4');
         let segundoh4=d.createElement('h4');
+        let img=d.createElement('img');
         h1.textContent=`Clima en ${json.name}-${json.sys.country}`;
         primerh4.textContent=temperatura;
-        segundoh4.textContent=json.weather[0].description;
+
+        for (let el in descripciones){
+            console.log(descripciones[el])
+            json.weather[0].description===el?segundoh4.textContent=descripciones[el]:console.log("no encontrado");
+        }
+
+       // segundoh4.textContent=json.weather[0].description;
+        img.setAttribute('src',`./img/${json.weather[0].icon}.png`);
         fragmento.appendChild(h1);
+        fragmento.appendChild(img)
         fragmento.appendChild(primerh4);
         fragmento.appendChild(segundoh4);
         $tarjeta.appendChild(fragmento)

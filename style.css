@@ -1,0 +1,21 @@
+#tarjeta{
+    min-height: 400px;
+}
+h1{
+    font-size: 70px;
+    text-align: center;
+}
+h4{
+    font-size: 40px;
+    text-align: center;
+}
+body{
+    background-color: black;
+}
+img{
+    height:259px;
+    width: 250px;
+    margin-right:auto ;
+    margin-left: auto;
+
+}
