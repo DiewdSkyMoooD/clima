@@ -1,5 +1,15 @@
+body{
+    background-color: skyblue;
+}
+nav{
+    background: rgb(63, 152, 187);
+    border: solid 1px black;
+}
+
 #tarjeta{
     min-height: 400px;
+    opacity: 0.7;
+    border-radius: 20px;
 }
 h1{
     font-size: 70px;
@@ -9,13 +19,16 @@ h4{
     font-size: 40px;
     text-align: center;
 }
-body{
-    background-color: black;
-}
+
 img{
     height:259px;
     width: 250px;
     margin-right:auto ;
     margin-left: auto;
 
+}
+.centrado{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
 }
