@@ -1,4 +1,3 @@
-
 const key="c41894cccfbdf501bd389fef3f8d8dcf";
 const d=document;
 const $btn =d.getElementById('btn');
@@ -16,13 +15,13 @@ const descripciones={
     "snow":"nevado",
     "mist":"con neblina"
 }
-
+//add eventlistener to the button
 $btn.addEventListener('click',()=>{
-
+    //request fetch using promises
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${$estado.value}&appid=${key}`)
     .then((res)=>res.ok?res.json():Promise.reject(res))
     .then((json)=>{
-        console.log(json)
+        //handle response
         $tarjeta.innerHTML='';
         let fragmento=d.createDocumentFragment();
         let h1=d.createElement('h1');
@@ -44,7 +43,7 @@ $btn.addEventListener('click',()=>{
         $tarjeta.appendChild(fragmento)
     })
     .catch((err)=>{
-        console.log(err)
+        //handle errors
         $tarjeta.innerHTML='';
         let fragmento=d.createDocumentFragment();
         let h1=d.createElement('h1');
@@ -61,7 +60,7 @@ $btn.addEventListener('click',()=>{
     })
     $estado.value=""
 });
-
+//function to convert kelvib to celsius
 function kelvin(kelvin){
     let celsius=kelvin-273.15;
 return(celsius.toFixed(2)+"°C");
